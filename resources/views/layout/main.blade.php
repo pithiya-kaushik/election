@@ -38,7 +38,7 @@
         <a href="{{ route('admin.logout') }}" style="margin-left: 220%">Logout</a>
       </a>
        <a class="nav-link nav-profile d-flex align-items-center pe-0" style="margin-left: 10%">
-        <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" style="width:50px">
+        <img src="/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" style="width:50px">
         <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
       </a>
       @endif

@@ -23,7 +23,7 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('website.election');
+            return redirect()->route('location.list');
         }else{
             return view('admin.auth.login');
         }
@@ -37,7 +37,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
      
         $request->session()->regenerateToken();
-     
         return redirect()->route('admin.login');
     }
 	

@@ -32,7 +32,6 @@ class PartyController extends Controller
 		if ($request->image) {
 			$party->addMediaFromRequest('image')->toMediaCollection('images');
 		}
-
 		return redirect(route('party.list'));
 	}
 
@@ -55,14 +54,12 @@ class PartyController extends Controller
             
             $party->addMedia($request->file('image'))->toMediaCollection('images');
         }
-
 		return redirect(route('party.list'));
 	}
 
 	public function delete(Party $party)
 	{
 		$party->delete();
-
 		return redirect(route('party.list'));
 	}
 

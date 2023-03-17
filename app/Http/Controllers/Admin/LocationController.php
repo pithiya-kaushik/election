@@ -16,7 +16,6 @@ class LocationController extends Controller
 	public function create()
 	{
 		$locations = Location::all();
-
 		return view('admin.location.create',compact('locations'));
 	}
 
@@ -31,7 +30,6 @@ class LocationController extends Controller
 		Location::create(
 			$request->all()
 		);
-
 		return redirect(route('location.list'));
 	}
 
@@ -58,7 +56,6 @@ class LocationController extends Controller
 	public function delete(Location $location)
 	{
 		$location->delete();
-
 		return redirect(route('location.list'));
 	}	
 }

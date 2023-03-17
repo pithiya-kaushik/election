@@ -15,7 +15,8 @@ class RegisterController extends Controller
     	return view('admin.auth.register');
     }
 
-    public function register(Request $request){
+    public function register(Request $request)
+    {
     	$request->validate([
             'name' => 'required',
             'phone_no' => 'required',
@@ -31,8 +32,7 @@ class RegisterController extends Controller
         $user = User::create($params);
 
         Auth::loginUsingId($user->id);
-
-         return redirect()->route('admin.list');
+        return redirect()->route('admin.list');
     }
     
 }

@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-	public function index(){
+	public function index()
+	{
 		$users = User::leftJoin('locations', function($join) {
 		      $join->on('users.location_id', '=', 'locations.id');
 		})
@@ -18,7 +19,6 @@ class UserController extends Controller
 	        'users.*',
 	        'locations.name as lname'
 	    ]);
-	    
 		return view('admin.user.list',compact('users'));
 	}
 
@@ -30,7 +30,6 @@ class UserController extends Controller
 
 	public function save(Request $request)
 	{	
-		$pass = Hash::make($request->password);
 		$request->validate([
 			'name' => 'required',
         	'phone_no' => 'required',
@@ -40,14 +39,15 @@ class UserController extends Controller
         	'location_id' => 'required'
         ]);
 
+		$params = $request->all();
+		$params['password'] = Hash::make($params['password']);
 		$user = User::create(
-			$request->all()
+			$params
 		);
 
 		if ($request->photo) {
 			$user->addMediaFromRequest('photo')->toMediaCollection('photos');
 		}
-
 		return redirect(route('user.list'));
 	}
 
@@ -79,14 +79,12 @@ class UserController extends Controller
             }
             $user->addMedia($request->file('photo'))->toMediaCollection('photos');
         }
-		
         return redirect(route('user.list'));
 	}
 
 	public function delete(User $user)
 	{
 		$user->delete();
-
 		return redirect(route('user.list'));
 	}
 }

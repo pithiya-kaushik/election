@@ -30,7 +30,8 @@
             <th scope="col">Candidate</th>
             <th scope="col">Location</th>
             <th scope="col">Party</th>
-            <th scope="col">Image</th>
+            <th scope="col">Party Image</th>
+            <th scope="col">Candidate Image</th>
             <th scope="col">Voting</th>
           </tr>
         </thead>
@@ -40,7 +41,8 @@
 	            <td>{{ $result->uname }}</td>
 	            <td>{{ $result->lname }}</td>
 	            <td>{{ $result->pname }}</td>
-	            <td><img src="{{ $result->image }}" width="80" height="80"></td>
+	            <td><img src="{{ $result->photo }}" width="80" height="80"></td>
+              <td><img src="{{ $result->image }}" width="80" height="80"></td>
 	            <td>{{ $result->count }}</td>
           	</tr>
           @endforeach

@@ -15,8 +15,6 @@ class VoteController extends Controller
 {
 	public function index(Request $request)
 	{
-    // get user entry 
-
     $voter = User::where('voter_no',$request->voter_no)->first();
     
     $votes = [
@@ -32,13 +30,11 @@ class VoteController extends Controller
         return response()->json([
             'errors' => $validator->errors(),
         ], 422);
-
     }else{
       Vote::create([
         'user_id' => $voter->id,
         'candidate_id' => $request->candidate_id,
       ]);
-
        return response()->json(['success' => true , 'message'=> 'Thank you']);
     }
 	}
@@ -73,7 +69,15 @@ class VoteController extends Controller
           }
       }
 
-
+      foreach ($results as $key => $result) {
+        foreach ($result->party as $key => $value) {
+          $images = $value ->getMedia('images')->first();
+        }  
+          $result->photo = "";
+          if($images) {
+              $result->photo  = $images->getFullUrl();
+          }
+      }
       $locations = Location::where('type' , 'City' )->get();
       
     return view('website.election.result',compact('results','locations'));
@@ -82,7 +86,7 @@ class VoteController extends Controller
   public function voteResult(Request $request)
   {
 
-    $results = Candidate::with('user')->Join('votes', function($join) {
+    $results = Candidate::with('user','party')->Join('votes', function($join) {
           $join->on('candidates.id',"=",'votes.candidate_id');
       })->Join('users', function($join) {
          $join->on('candidates.user_id', '=', 'users.id');
@@ -100,7 +104,7 @@ class VoteController extends Controller
       ->groupBy('candidates.id')
       ->orderBy('count', 'DESC')
       ->get();
-      
+
       foreach ($results as $key => $result) {
         foreach ($result->user as $key => $value) {
           $image = $value ->getMedia('photos')->first();
@@ -110,8 +114,16 @@ class VoteController extends Controller
               $result->image  = $image->getFullUrl();
           }
       }
-      //echo '<pre>'; print_r($results); echo '</pre>';die;
 
+      foreach ($results as $key => $result) {
+        foreach ($result->party as $key => $value) {
+          $images = $value ->getMedia('images')->first();
+        }  
+          $result->photo = "";
+          if($images) {
+              $result->photo  = $images->getFullUrl();
+          }
+      }
       $locations = Location::where('type' , 'City' )->get();
       
     return view('website.election.result',compact('results','locations'));

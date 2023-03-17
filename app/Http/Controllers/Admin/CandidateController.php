@@ -25,7 +25,6 @@ class CandidateController extends Controller
   			'parties.name as pname',
   			'locations.name as lname'
   		]);
-  		
 		return view('admin.candidate.list',compact('candidates'));
 	}
 
@@ -48,7 +47,6 @@ class CandidateController extends Controller
 		Candidate::create(
 			$request->all()
 		);
-
 		return redirect(route('candidate.list'));
 	}	
 
@@ -77,7 +75,6 @@ class CandidateController extends Controller
 	public function delete(Candidate $candidate)
 	{
 		$candidate->delete();
-
 		return redirect(route('candidate.list'));
 	}
 }	

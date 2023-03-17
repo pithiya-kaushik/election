@@ -87,6 +87,7 @@ Route::middleware('auth')->group(function () {
 	});
 
 });
+
 Route::get('/',[ElectionController::class,'index'])->name('website.election');
 Route::post('location',[ElectionController::class,'location'])->name('location');
 Route::post('vote',[VoteController::class,'index'])->name('vote');
