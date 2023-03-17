@@ -124,6 +124,7 @@ class VoteController extends Controller
               $result->photo  = $images->getFullUrl();
           }
       }
+      
       $locations = Location::where('type' , 'City' )->get();
       
     return view('website.election.result',compact('results','locations'));
