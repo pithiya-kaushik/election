@@ -11,6 +11,14 @@ class PartyController extends Controller
 	public function index(){
 
 		$parties = Party::all();
+
+		foreach ($parties as $key => $party) {
+          	$images = $party ->getMedia('images')->first();
+          	$party->photo = "";
+	        if($images) {
+	            $party->photo  = $images->getFullUrl();
+	        }
+      	}
 		return view('admin.party.list',compact('parties'));
 	}
 

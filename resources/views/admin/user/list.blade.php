@@ -11,8 +11,10 @@ User List
 
       <table class="table table-striped">
         <div class="col-3">
-              <button class="btn btn-primary w-100" type="submit"><a href="{{ route('user.create') }}" style="color: white">Create User</a></button>
-            </div>
+          <a href="{{ route('user.create') }}" style="color: white; margin-left: 350%">
+              <button class="btn btn-secondary w-70" type="submit">Create User</button>
+          </a>
+        </div>
         <thead>
           <tr>
             <th scope="col">Id</th>

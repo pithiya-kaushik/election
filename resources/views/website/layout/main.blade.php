@@ -34,9 +34,10 @@
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="/assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Election</span>
-          
       </a>
-      
+      <a href="{{ route('user.list') }}" class="logo d-flex align-items-center">
+          <button  type="button" class="btn btn-primary candidate-vote-btn" style="margin-left: 370%">Admin</button>
+      </a>
     </div>
     <nav class="header-nav ms-auto">
       

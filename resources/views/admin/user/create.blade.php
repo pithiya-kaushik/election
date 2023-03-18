@@ -22,22 +22,37 @@ User Create
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Name</label>
           <input type="text" name="name" class="form-control" id="inputNanme4">
+          @if($errors->has('name'))
+            <div class="error text-danger">{{ $errors->first('name') }}</div>
+          @endif
         </div>
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Phone No</label>
           <input type="text" name="phone_no" class="form-control" id="inputNanme4">
+          @if($errors->has('phone_no'))
+            <div class="error text-danger">{{ $errors->first('phone_no') }}</div>
+          @endif
         </div>
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Voter No</label>
           <input type="text" name="voter_no" class="form-control" id="inputNanme4">
+          @if($errors->has('voter_no'))
+            <div class="error text-danger">{{ $errors->first('voter_no') }}</div>
+          @endif
         </div>
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Email</label>
           <input type="email" name="email" class="form-control" id="inputNanme4">
+          @if($errors->has('email'))
+            <div class="error text-danger">{{ $errors->first('email') }}</div>
+          @endif
         </div>
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Password</label>
           <input type="tex" name="password" class="form-control" id="inputNanme4">
+          @if($errors->has('password'))
+            <div class="error text-danger">{{ $errors->first('password') }}</div>
+          @endif
         </div>
         <div class="col-sm-12">
           <label for="inputNanme4" class="form-label">Date Of Birth</label>

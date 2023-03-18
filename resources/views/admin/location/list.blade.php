@@ -11,8 +11,10 @@ Location List
 
       <table class="table table-striped">
         <div class="col-3">
-              <button class="btn btn-primary w-100" type="submit"><a href="{{ route('location.create') }}" style="color: white">Create Location</a></button>
-            </div>
+          <a href="{{ route('location.create') }}" style="color: white; margin-left: 280%">
+              <button class="btn btn-secondary w-100" type="submit">Create Location</button>
+          </a>  
+        </div>
         <thead>
           <tr>
             <th scope="col">Id</th>

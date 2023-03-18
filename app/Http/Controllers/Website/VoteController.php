@@ -24,6 +24,10 @@ class VoteController extends Controller
     
     $validator = Validator::make($votes,[
       'voter_no' => 'required|unique:votes,user_id',
+    ],
+    [ 
+      'voter_no.required' => 'The voter no is required.',
+      'voter_no.unique' => 'alredy voted.',
     ]);
     
     if ($validator->fails()) {
@@ -35,7 +39,7 @@ class VoteController extends Controller
         'user_id' => $voter->id,
         'candidate_id' => $request->candidate_id,
       ]);
-       return response()->json(['success' => true , 'message'=> 'Thank you']);
+      return response()->json(['success' => true , 'message'=> 'Thank you']);
     }
 	}
 
@@ -79,7 +83,6 @@ class VoteController extends Controller
           }
       }
       $locations = Location::where('type' , 'City' )->get();
-      
     return view('website.election.result',compact('results','locations'));
   }
 
@@ -124,7 +127,7 @@ class VoteController extends Controller
               $result->photo  = $images->getFullUrl();
           }
       }
-      
+
       $locations = Location::where('type' , 'City' )->get();
       
     return view('website.election.result',compact('results','locations'));

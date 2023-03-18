@@ -11,8 +11,10 @@ Candidate List
 
       <table class="table table-striped">
         <div class="col-3">
-              <button class="btn btn-primary w-100" type="submit"><a href="{{ route('candidate.create') }}" style="color: white">Create Cadidate</a></button>
-            </div>
+          <a href="{{ route('candidate.create') }}" style="color: white; margin-left: 330%">
+              <button class="btn btn-secondary w-70" type="submit">Create Cadidate</button>
+          </a>
+        </div>
         <thead>
           <tr>
             <th scope="col">Id</th>

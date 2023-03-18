@@ -89,9 +89,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/',[ElectionController::class,'index'])->name('website.election');
-Route::post('location',[ElectionController::class,'location'])->name('location');
+Route::get('location',[ElectionController::class,'location'])->name('location');
 Route::post('vote',[VoteController::class,'index'])->name('vote');
-Route::get('result',[VoteController::class,'result'])->name('result');
-Route::post('result',[VoteController::class,'voteResult'])->name('vote.result');
+Route::get('results',[VoteController::class,'result'])->name('result');
+Route::get('result',[VoteController::class,'voteResult'])->name('vote.result');
 
 

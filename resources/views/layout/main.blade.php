@@ -20,7 +20,6 @@
   <link href="/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="/assets/css/style.css" rel="stylesheet">
-
   
   <link href="/assets/css/style.css" rel="stylesheet">
 
@@ -32,15 +31,20 @@
 
     <div class="d-flex align-items-center justify-content-between">
       @if (!Auth::guest())
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="#" class="logo d-flex align-items-center">
         <img src="/assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Election</span>
-        <a href="{{ route('admin.logout') }}" style="margin-left: 220%">Logout</a>
+        <div class="iconslist">
+        <a href="{{ route('admin.logout') }}" style="margin-left: 580%">
+          <i class="bi bi-box-arrow-in-right"></i>
+          </a>
+      </div>
       </a>
-       <a class="nav-link nav-profile d-flex align-items-center pe-0" style="margin-left: 10%">
+       <a class="nav-link nav-profile d-flex align-items-center pe-0" style="margin-left: 105%">
         <img src="/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" style="width:50px">
-        <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
+        <span class="d-none d-md-block ps-2">{{ Auth::user()->name }}</span>
       </a>
+      
       @endif
     </div>
     <nav class="header-nav ms-auto">

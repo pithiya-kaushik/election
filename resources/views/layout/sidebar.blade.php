@@ -1,5 +1,4 @@
 <aside id="sidebar" class="sidebar">
-    <i class="bi bi-grid"></i>
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">

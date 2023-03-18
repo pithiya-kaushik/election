@@ -14,6 +14,9 @@ Party Edit
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Your Name</label>
           <input type="text" name="name" class="form-control" id="inputNanme4" value="{{ $party->name }}">
+          @if($errors->has('name'))
+            <div class="error text-danger">{{ $errors->first('name') }}</div>
+          @endif
         </div>
         <div class="col-sm-12">
           <label for="inputState" class="form-label">Image</label>

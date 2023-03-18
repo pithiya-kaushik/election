@@ -23,10 +23,16 @@ Location Edit
         <div class="col-12">
           <label for="inputNanme4" class="form-label"> Name</label>
           <input type="text" name="name" class="form-control" id="inputNanme4" value="{{ $location->name }}">
+          @if($errors->has('name'))
+            <div class="error text-danger">{{ $errors->first('name') }}</div>
+          @endif
         </div>
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Type</label>
           <input type="text" name="type" class="form-control" id="inputNanme4" value="{{ $location->type }}">
+          @if($errors->has('type'))
+            <div class="error text-danger">{{ $errors->first('type') }}</div>
+          @endif
         </div>
         <div class="col-md-12">
           <label for="inputState" class="form-label">Parent</label>

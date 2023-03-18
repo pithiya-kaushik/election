@@ -23,18 +23,30 @@ Location Edit
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Name</label>
           <input type="text" name="name" value="{{ $user->name }}" class="form-control" id="inputNanme4">
+          @if($errors->has('name'))
+            <div class="error text-danger">{{ $errors->first('name') }}</div>
+          @endif
         </div>
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Phone No</label>
           <input type="text" name="phone_no" value="{{ $user->phone_no }}" class="form-control" id="inputNanme4">
+          @if($errors->has('name'))
+            <div class="error text-danger">{{ $errors->first('name') }}</div>
+          @endif
         </div>
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Voter No</label>
           <input type="text" name="voter_no" value="{{ $user->voter_no }}" class="form-control" id="inputNanme4">
+          @if($errors->has('phone_no'))
+            <div class="error text-danger">{{ $errors->first('phone_no') }}</div>
+          @endif
         </div>
         <div class="col-12">
           <label for="inputNanme4" class="form-label">Email</label>
           <input type="email" name="email" value="{{ $user->email }}" class="form-control" id="inputNanme4">
+          @if($errors->has('email'))
+            <div class="error text-danger">{{ $errors->first('email') }}</div>
+          @endif
         </div>
         <div class="col-sm-12">
           <label for="inputNanme4" class="form-label">Date Of Birth</label>

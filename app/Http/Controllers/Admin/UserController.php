@@ -15,10 +15,10 @@ class UserController extends Controller
 		$users = User::leftJoin('locations', function($join) {
 		      $join->on('users.location_id', '=', 'locations.id');
 		})
-	    ->get([
+	    ->select([
 	        'users.*',
 	        'locations.name as lname'
-	    ]);
+	    ])->paginate(5);
 		return view('admin.user.list',compact('users'));
 	}
 
@@ -33,8 +33,9 @@ class UserController extends Controller
 		$request->validate([
 			'name' => 'required',
         	'phone_no' => 'required',
-        	'voter_no' => 'required',
+        	'voter_no' => 'required|unique:users,voter_no',
         	'email' => 'required',
+        	'password' => 'required',
         	'date_of_birth' => 'required',
         	'location_id' => 'required'
         ]);

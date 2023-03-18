@@ -1,9 +1,11 @@
 @extends('website.layout.main')
 @section('content') 
 
-<form method="post" action="{{ route('vote.result') }}">
-	@csrf
+<form method="get" action="{{ route('vote.result') }}">
 	<div class="col-md-4">
+    <a href="{{ route('website.election') }}" class="logo d-flex align-items-center">
+      <button  type="button" class="btn btn-primary candidate-vote-btn" style="margin-left: 360%">Vote</button>
+    </a>
 	  <label for="inputState" class="form-label">Location</label>
 	  <select id="inputState" name="location_id" class="form-select">
 	  	@foreach( $results as $result )

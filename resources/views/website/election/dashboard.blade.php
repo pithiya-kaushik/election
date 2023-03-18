@@ -1,8 +1,10 @@
 @extends('website.layout.main')
 @section('content') 
-<form method="post" action="{{ route('location') }}">
-	@csrf
+<form method="get" action="{{ route('location') }}">
 	<div class="col-md-4">
+	  <a href="{{ route('result') }}" class="logo d-flex align-items-center">
+          <button  type="button" class="btn btn-primary candidate-vote-btn" style="margin-left: 360%">Result</button>
+      </a>
 	  <label for="inputState" class="form-label">Location</label>
 	  <select id="inputState" name="location_id" class="form-select">
 	    @foreach ( $locations as $location)
@@ -14,9 +16,9 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
-<div class="row" style="margin-top: 30px">
+<div class="row" style="margin-top: 30px;">
 	@foreach ($elections as $election)
-		<div class="col-xxl-3 col-md-6 cards">
+		<div class="col-xxl-3 col-md-6 cards mb-5">
 		  	<div class="card info-card sales-card">
 			    <div class="card-body">
 			      <h5 class="card-title">{{ $election->pname }}</h5>
@@ -73,15 +75,15 @@
 	  	
 	  	$('.candidate-vote-btn').click(function() {
 	    	
-		    	var form = $(this).closest("#candidate-vote-form");
+		    var form = $(this).closest("#candidate-vote-form");
 
-		  		$.ajax({
-			      type : 'POST',
-			      url : "{{ route('vote') }}",
-			      data : form.serialize(),
-			      dataType: "json",
-			      encode: true,
-			      success: function(data, textStatus, jqXHR) {
+		  	$.ajax({
+			    type : 'POST',
+			    url : "{{ route('vote') }}",
+			    data : form.serialize(),
+			    dataType: "json",
+			    encode: true,
+			    success: function(data, textStatus, jqXHR) {
 	              if (data.success == true) {
 	                alert(data.message);
 	              }
@@ -94,7 +96,6 @@
 	                });
 	              }
 	            }
-      
     		}); 
 	  	});
 	});
