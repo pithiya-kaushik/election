@@ -9,7 +9,7 @@ use App\Models\Location;
 class LocationController extends Controller
 {
 	public function index(){
-		$locations = Location::all();
+		$locations = Location::paginate(4);
 		return view('admin.location.list',compact('locations'));
 	}
 

@@ -46,6 +46,23 @@ Candidate List
           @endforeach
         </tbody>
       </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="{{$candidates->previousPageUrl()}}">Preview</a>
+          </li>
+          @for($i=1;$i<=$candidates->lastPage();$i++)
+            <li class="page-item">
+              <a class="page-link" href="{{$candidates->url($i)}}">
+                {{$i}}
+              </a>
+            </li>
+          @endfor
+          <li class="page-item">
+            <a class="page-link" href="{{$candidates->nextPageUrl()}}">Next</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

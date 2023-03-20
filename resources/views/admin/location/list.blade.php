@@ -46,6 +46,23 @@ Location List
           @endforeach
         </tbody>
       </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="{{$locations->previousPageUrl()}}">Preview</a>
+          </li>
+          @for($i=1;$i<=$locations->lastPage();$i++)
+            <li class="page-item">
+              <a class="page-link" href="{{$locations->url($i)}}">
+                {{$i}}
+              </a>
+            </li>
+          @endfor
+          <li class="page-item">
+            <a class="page-link" href="{{$locations->nextPageUrl()}}">Next</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

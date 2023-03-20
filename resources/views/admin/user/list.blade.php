@@ -52,7 +52,25 @@ User List
           @endforeach
           
         </tbody>
+
       </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="{{$users->previousPageUrl()}}">Preview</a>
+          </li>
+          @for($i=1;$i<=$users->lastPage();$i++)
+            <li class="page-item">
+              <a class="page-link" href="{{$users->url($i)}}">
+                {{$i}}
+              </a>
+            </li>
+          @endfor
+          <li class="page-item">
+            <a class="page-link" href="{{$users->nextPageUrl()}}">Next</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>

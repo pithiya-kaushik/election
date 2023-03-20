@@ -20,11 +20,11 @@ class CandidateController extends Controller
   		})->leftJoin('locations', function($join) {
       		$join->on('candidates.location_id', '=', 'locations.id');
   		})->
-  		get(['candidates.*',
+  		select(['candidates.*',
   			'users.name as uname',
   			'parties.name as pname',
   			'locations.name as lname'
-  		]);
+  		])->paginate(4);
 		return view('admin.candidate.list',compact('candidates'));
 	}
 
